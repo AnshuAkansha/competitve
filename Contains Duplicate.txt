@@ -1,0 +1,40 @@
+ Contains Duplicate
+1) O(n^2)
+space O(1)
+
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+boolean b1 = true; 
+        boolean b2 = false; 
+        for(int i=0; i<nums.length; i++)
+        {
+            for(int j=0; j<i; j++)
+            {
+            if(nums[j] == nums[i])
+                return b1;
+            }
+        }
+         return b2;      
+        
+    }
+}
+
+
+2) O(nlogn)
+space O(1)
+
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+boolean b1 = true; 
+        boolean b2 = false; 
+        Arrays.sort(nums);
+        for(int i=0; i<nums.length-1; i++)
+        {
+           
+            if(nums[i] == nums[i+1])
+                return b1;
+            
+        }
+         return b2;      
+    }
+}
