@@ -1,0 +1,26 @@
+class Solution {
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+         if(l1 == null && l2 == null) {
+            return null;
+        }
+
+        if(l1 == null) {
+            return l2;
+        }
+
+        if(l2 == null) {
+            return l1;
+        }
+/* Start with the empty list. */
+        ListNode llist = new ListNode(0);
+        if(l1.val < l2.val) 
+        {
+            llist.val = l1.val;
+            llist.next = mergeTwoLists(l1.next, l2);
+        } else {
+            llist.val = l2.val;
+            llist.next = mergeTwoLists(l1, l2.next);
+        }
+return llist;
+    }
+}
