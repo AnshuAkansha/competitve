@@ -1,0 +1,28 @@
+palindrome
+class Solution {
+    public boolean isPalindrome(int x) {
+        int rem,rev=0;
+        
+        boolean b1=true;
+        boolean b2=false;
+        if(x>=0 && x<10)
+        {
+            return b1;
+        }
+        if(x<0 || x%10==0)
+        {
+            return false;
+        }
+        int x1 = x;
+        while(x1 != 0)
+        {
+        rem=x1%10;
+        rev=rev*10+rem;
+        x1=x1/10;
+        }
+        if(rev==x)
+            return b1;
+        else
+            return b2;
+    }
+}
