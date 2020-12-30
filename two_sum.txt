@@ -1,0 +1,118 @@
+method1
+
+Approach 1: Brute Force: general problem-solving technique and algorithmic paradigm that consists of systematically enumerating all possible candidates for the solution and checking whether each candidate satisfies the problem's statement.
+The brute force approach is simple. Loop through each element xx and find if there is another value that equals to target - xtarget−x.
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        for (int i = 0; i < nums.length; i++) {
+        for (int j = i + 1; j < nums.length; j++) {
+            if (nums[j] == target - nums[i]) {
+                return new int[] { i, j };
+            }
+        }
+    }
+    throw new IllegalArgumentException("No two sum solution");
+
+    }
+}
+
+Complexity Analysis
+
+Time complexity : O(n^2)O(n 
+2
+ ). For each element, we try to find its complement by looping through the rest of array which takes O(n)O(n) time. Therefore, the time complexity is O(n^2)O(n 
+2
+ ).
+
+Space complexity : O(1)O(1).
+
+
+
+method2
+Approach 2: Two-pass Hash Table
+To improve our run time complexity, we need a more efficient way to check if the complement exists in the array. If the complement exists, we need to look up its index. What is the best way to maintain a mapping of each element in the array to its index? A hash table.
+
+We reduce the look up time from O(n)O(n) to O(1)O(1) by trading space for speed. A hash table is built exactly for this purpose, it supports fast look up in near constant time. I say "near" because if a collision occurred, a look up could degenerate to O(n)O(n) time. But look up in hash table should be amortized O(1)O(1) time as long as the hash function was chosen carefully.
+
+A simple implementation uses two iterations. In the first iteration, we add each element's value and its index to the table. Then, in the second iteration we check if each element's complement (target - nums[i]target−nums[i]) exists in the table. Beware that the complement must not be nums[i]nums[i] itself!
+
+
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+    Map<Integer, Integer> map = new HashMap<>();
+    for (int i = 0; i < nums.length; i++) {
+        map.put(nums[i], i);
+    }
+    for (int i = 0; i < nums.length; i++) {
+        int complement = target - nums[i];
+        if (map.containsKey(complement) && map.get(complement) != i) {
+            return new int[] { i, map.get(complement) };
+        }
+    }
+    throw new IllegalArgumentException("No two sum solution");
+}
+}
+
+
+
+
+
+for reference
+1) 
+// Java program to illustrate 
+// Java.util.HashMap 
+
+import java.util.HashMap; 
+
+public class GFG { 
+	
+	public static void main(String[] args) 
+	{ 
+		// Create an empty hash map 
+		HashMap<String, Integer> map = new HashMap<>(); 
+
+		// Add elements to the map 
+		map.put("vishal", 10); 
+		map.put("sachin", 30); 
+		map.put("vaibhav", 20); 
+
+		// Print size and content 
+		System.out.println("Size of map is:- "
+						+ map.size()); 
+		System.out.println(map); 
+
+		// Check if a key is present and if 
+		// present, print value 
+		if (map.containsKey("vishal")) { 
+			Integer a = map.get("vishal"); 
+			System.out.println("value for key"
+							+ " \"vishal\" is:- " + a); 
+		} 
+	} 
+}
+
+
+
+2)
+The compiler will analyze your code and needs to terminate each path through your code that can be reached, with a proper exit statement.
+
+Since you declared to return an integer array, each path must lead to an end where a return statement returns that declared type.
+
+Since you can only reach the return inside your if inside your for inside your for, the compiler can easily find a way around it:
+
+for (int i = 0; i < nums.length; i++) {
+will not be entered if num.length == 0. Since you do not check this, even a smart compiler must expect an empty array as valid input (even a null is valid - and will crash your function)
+
+for (int j = i + 1; j < nums.length; j++) {
+again, requires num.length > j. Since num.length==1 is a valid input, you will not enter this for loop.
+
+if (nums[i] + nums [j] == target) {
+The last hurdle to your return statement is completely dependent to your array's content and the value of target. As these values are only known at runtime and the compiler is a little bit mimimi about things it doesn't know beforehand, it will expect you to provide many input that will fail this condition, so the return is never reached.
+
+So, the compiler can easily see, that there are code-paths that have no proper return statement. Throwing the exception is an alternative terminating statement and thus makes your compiler happy.
+
+
+
+3)
