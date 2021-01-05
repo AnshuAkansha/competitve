@@ -1,0 +1,25 @@
+cut paper into square or rectangle pieces
+
+#include <bits/stdc++.h> 
+using namespace std; 
+  
+ 
+int findMaximumPieces(int n) 
+{  
+    int x = n / 2; 
+  
+     
+    return ((x + 1) * (n - x + 1)); 
+} 
+int main() 
+{ 
+  
+    // Taking the maximum number of cuts allowed as 3 
+    int n = 3; 
+  
+    // Finding and printing the max number of pieces 
+    cout << "Max number of pieces for n = " << n 
+         << " is " << findMaximumPieces(3); 
+  
+    return 0; 
+} 
