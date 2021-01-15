@@ -1,0 +1,8 @@
+public String simplifyPath(String path) {
+	Stack<String> stk = new Stack();
+	for(String s: path.split("/")){
+		if(!stk.isEmpty() && s.equals("..")) stk.pop();
+		if(!s.isEmpty() && !s.equals(".") && !s.equals("..")) stk.push(s);
+	}
+	return  "/" + String.join("/", stk);
+}
