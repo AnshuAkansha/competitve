@@ -1,0 +1,39 @@
+Simplify path
+
+class Solution{
+public String simplifyPath(String path)
+{
+
+//os.path.split() method in Python is used to Split the path name into a pair head and tail. Here, tail is the last path name component and head is everything leading up to that.
+String[] paths = path.split("/");
+Stack<String> stack = new Stack<>();
+for(String p : paths)
+{
+if(p.length()>0)
+{
+if(".".compareTo(p) == 0)
+{
+continue;
+}
+else if("..".compareTo(p) == 0)
+{
+if(stack.isEmpty())
+{
+stack.pop();
+}
+}
+else
+{
+stack.push(p);
+}
+}
+}
+String result = "/" + String.join("/",stack);
+return result;
+}
+}
+
+
+
+
+
