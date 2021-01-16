@@ -1,0 +1,31 @@
+subset sum problem
+#include<stdio.h>
+{
+
+//base case
+if(sum==0)
+return true;
+if(n==0)
+return false;
+
+//if last element is greater than sum
+if(set[n-1]>sum)
+return isSubsetSum(set, n-1, sum);
+
+//else check is sum can be ontaimed by any other number by including and excluding last element
+else
+return isSubsetSum(set, n-1, sum) || isSubsetSum(set, n-1, sum-set[n-1]);
+}
+
+//driver program
+int main()
+{
+int set[] = {3, 34, 4, 12, 5, 2};
+int sum = 9;
+int n = sizeof(set)/ sizeof(set[0]);
+if(isSubsetSum(set, n, sum) == true) 
+printf("found a subset");
+else
+printf("no subset with sum");
+return 0;
+}
