@@ -1,0 +1,42 @@
+0-1 Knapsack Problem
+Given weights and values of n items, put these items in a knapsack of capacity W to get the maximum total value in the knapsack.
+
+#include<bits/stdc++.h>
+using namespace std;
+
+//to find max
+static int max(int a, int b)
+{
+	return(a>b)?a:b;
+}
+
+//returns max value that can be put in knapsack
+int knapsack(int W, int wt[], int val[], int n)
+{
+
+//base case
+if(n==0 || W==0)
+return 0;
+
+//if weight of nth item is more than knapsack(W), then item can't be included in solution
+	if(wt[n-1]>W)
+{
+	return knapsack(W, wt, val, n-1);
+}
+
+//if weight of item is less than knapsack(W), we will include it in solution
+	else
+{
+	return max(val[n-1]+knapsack(W-wt[n-1], wt, val, n-1), knapsack(W, wt, val, n-1));
+}
+
+//driver program
+public static void main(String args[])
+{
+int val[] = new int[]{60, 100, 120};
+int wt[] = new int[]{10, 20, 30};
+int W = 50;
+int n = val.length;
+System.out.println(knapsack(W,wt,val,n));
+}
+}
