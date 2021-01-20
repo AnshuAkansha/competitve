@@ -1,0 +1,50 @@
+min number of squares whose sum equals to a given number n
+(1*1+1*1+1*1+1*1+...)
+
+examples-
+input=> n=100
+output=> 1
+100 can be written as 10*10. can also be written as 5*5+5*5+5*5+5*5
+
+input=> n=6
+output=> 3
+
+The idea is simple, we start from 1 and go till a number whose square is smaller than or equals to n. For every number x, we recur for n-x
+If n=1 and x*x<=n
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int getMinSquares(unsigned int n)
+{
+// find the floor square root of a number, find the square of numbers from 1 to N, till the square of some number K becomes greater than N. Hence the value of (K – 1) will be the floor square root of N
+
+	if(sqrt(n) - floor(sqrt(n) == 0))
+	return 1;
+	if(n<=3)
+	return n;
+
+//getMinSquares rest of the table using recursive formula
+//Max squares required is n(1*1 + 1*1 + 1*1 + ..)
+	int res = n;
+
+//Go through all smaller numbers to recursively find min
+for(int x = 1; x<=n; x++)
+{
+	int temp = x*x;
+	if(temp>n)
+	break;
+	else
+	res = min(res, 1+getMinSquares(n-temp));
+}
+	return res;
+}
+
+
+//driver code
+
+int main()
+{
+	cout<<getMinSquares(6);
+	return 0;
+}
