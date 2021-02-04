@@ -1,0 +1,29 @@
+#inlcude <iostream>
+using namespace std;
+template<typename T>
+T MAX(T a, T b)
+{
+return a>b ? a:b;
+}   
+int add(int a ,int b)
+{
+return a+b;
+}
+int main()
+{
+ int x = MAX<int>(2,4);
+cout<<x<<endl;
+}
+
+
+
+can make template for char
+template<class Y>
+class boy
+{
+public: Y name;
+};
+
+boy<string>person
+person.name = "anshu"
+cout<<(person.name)<<endl
