@@ -1,0 +1,32 @@
+
+
+#include<iostream>
+//stl includes vector 
+#include<vector>
+int main()
+{
+//making a vector
+vector<int> v;
+//declaring iterator to a vector
+vector<int> :: iterator it;
+//insertng into vector
+v.push_back(3);
+v.push_back(10);
+v.push_back(7);
+
+auto a = v.begin();
+cout<<"first element:"<<a[0]<<endl;
+//if you you want to pop
+v.pop_back();
+
+it=v.end();
+cout<<"iterator points end:"<<it<<endl
+//cout<<it<<endl;
+//printing the vector
+int size = (int)v.size();
+for(int i=0;i<size;i++)
+{
+cout<<v[i]<<" ";
+}
+cout<<endl;
+}
