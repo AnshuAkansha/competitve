@@ -1,0 +1,32 @@
+#include<iostream>
+#include<utility>
+using namespace std;
+int main()
+{
+	pair<int, char> PAIR1;
+	PAIR1.first =100;
+	PAIR1.second='G';
+cout<<PAIR1.first<<" "<<PAIR1.second<<endl;//100 G
+pair<string, double>PAIR2("anshu",79.9);
+cout<<PAIR2.first<<" "<<PAIR2.second<<endl;//anshu,79.9
+
+pair<string,double>PAIR3;
+PAIR3=make_pair("krishna", 90.3);
+cout<<PAIR3.first<<" "<<PAIR3.second<<endl;//krishna,90.3
+
+pair<int, int> pair1 = make_pair(1, 19);
+pair<int, int> pair2 = make_pair(2, 7);
+
+//we copied pair2 data in pair3 data
+pair<int, int>pair3(pair2);
+
+cout<<pair1.first<<" "<<pair1.second<<endl;//1,19
+cout<<pair3.first<<" "<<pair3.second<<endl;//2,7
+ 
+//we can compare data in pair
+cout<<(pair1==pair2)<<endl; //0 will be the output as it is false
+cout<<(pair1<=pair2)<<endl; //1 as it is true first element is greater
+cout<<(pair1>=pair2)<<endl; //0 as it is false first element is smaller
+
+
+}
