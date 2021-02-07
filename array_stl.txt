@@ -1,0 +1,31 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+int a[6] = {2,5,-6,7,8,9,1};
+{  int count=0;
+for(int i=0;i<6;i++)
+{
+if(a[i]>=0)
+{
+count++;
+}
+}
+//above function 
+all_of(a, a+6, [](int x){return x>0};) ? cout<<"all elements of array is +ve"<<endl:cout<<"all elements
+are not necessarily +ve"<<endl;
+
+any_of(a, a+6,[](int x){return x<0;})? cout<<"we have atleast ine -ve"<<endl:cout<<"all elements are +ve"<<endl;
+
+none_of(a, a+6,[](int x){return x==100};)? cout<<"we have none of elements exactly equal to 100"
+<<endl: cout<<"it means have atleast one element =100"<<endl;
+
+int arr1[6];
+copy_of(a, 6, arr1);
+for(int i=0;i<6;i++){ cout<<arr1[i]<<" ";}
+
+int arr2[6];
+iota{arr2, arr2+6, 2};
+ for(int i=0;i<6;i++){ cout<<arr2[i]<<" ";}
+} 
+
