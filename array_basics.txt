@@ -1,0 +1,47 @@
+array
+1.collection of items at continous memory location
+2.same datatype are stored together
+int arr[]={1,2,3,4,5,6,7}
+3.array has index with it
+4.access array
+arr[0] is the index of element to be accessed
+
+
+5.code
+#include<iostream>
+using namespace std;
+int main()
+{
+int arr[5];
+arr[0]=4;
+arr[1]=2;
+arr[2]=-10;
+arr[3]=9;
+arr[7]=21;
+cout<<arr[3]<<endl;
+
+
+// output of this much code -10
+
+int arr1[5]={4,3,-10,9,21,12}; 
+int arr2[]={5,3,12,6,9,43,33,56};
+
+cout<<arr1[5]<<endl;
+cout<<arr2[1]<<endl;
+cout<<arr2[3/2]<<endl;
+
+//output of above code is 12
+//output of arr2 in above code is 3
+//array always take floor value 3
+
+int a[5] ={0};
+cout<<a[4]<<endl;
+
+//output 0
+
+int a[5]={1};
+cout<<a[4]<<endl;
+
+//output 0 as this thing is valid for only 0 that assigning all element become 0
+
+
