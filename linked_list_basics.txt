@@ -1,0 +1,40 @@
+//basics
+struct Node
+{
+int data;
+Node *next;
+};
+
+
+//code
+
+#include<iostream>
+using namespace std;
+struct node
+{
+int data;
+node *next;
+};
+
+void printList(node *n)
+{
+while(n!=0)
+{
+cout<<n->data<<endl;
+n=n->next;
+}
+}
+int main()
+{
+node *head = new node();//ram got a block to occupy space
+int *second = new node();//same as above head
+int *third=new node();//same as above head
+
+head->data=5;
+head->next=second;
+second->data=1;
+second->next=third;
+third->data=3;
+third->next=NULL;
+printList(head);
+}
