@@ -1,0 +1,78 @@
+pointers
+
+suppose
+int x=20;
+will have address
+pointer stores the address of that variables
+
+define a ptr
+int *ptr; //the address of that variable whose address it will store that should be integer
+
+ptr=&x;
+
+#include<iostream>
+using namespace std;
+int main()
+{
+int x = 20;
+
+//declaring  + stroing address
+ int *ptr;
+ptr = &x;
+
+//declare + storing address
+int *ptr = &x;
+//but use only one from above two 
+
+cout<<ptr<<endl;//address 0*7ffeefbff59c
+cout<<*ptr<<endl;//value kept on that position
+
+//take char then int datatype should be chnges to char then only it will print
+ char y = 'c';
+char *pointer = &y;
+cout<<*pointer<<endl; // c
+cout<<pointer<<endl; //address 0*7ffeefbff59c
+
+int *num = &x; //special type of thing for stroing address which is called pointer
+} 
+
+//ptr1 stores address and second star shows the address of pointer type 
+int **ptr1;
+
+int *ptr; //correct same
+int* ptr;//correct same
+int*ptr;//correct same
+
+int *ptr = &x;
+int **ptr1;
+ptr1 = &ptr;
+//ptr1 = &x; //show error because ptr1 can store the address of pointer type variable
+cout<<ptr1<<endl;//address of ptr 0*7ffeefbff590
+cout<<*ptr1<<endl;//address of int 0*7ffeefbff59c
+cout<<**ptr1<<endl; // 20
+
+suppose int a[] = {1,2,3,4,5};
+int *ptr ;
+ptr = a;//automatic stores address of first index;
+//ptr = &a[0]; this is also correct
+
+cout<<ptr<<endl;//address
+cout<<*ptr<<endl;//1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+ 
