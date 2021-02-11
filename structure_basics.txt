@@ -1,0 +1,86 @@
+structure
+
+details of person, animal, thing
+
+student
+roll  int
+name  string
+age   int 
+
+#include <iostream>
+using namespace std;
+struct student{
+int roll;
+string name;
+int age;
+};
+
+int main()
+{
+//int var;
+//string s;
+student anshu;
+anshu.age=22;
+anshu.name="anshu akansha";
+anshu.roll=31;
+cout<<anshu.age<<" "<<anshu.name<<endl;
+//output 22 anshu akansha
+
+
+//new method
+struct student
+{
+int age;
+string name;
+int roll;
+
+
+
+void studentDetails()
+{
+cout<<"name is:"<<name<<endl;
+cout<<"age:"<<age<<endl;
+cout<<"roll:"<<roll<<endl;
+}
+};
+
+
+int main()
+{
+student anshu;
+anshu.age = 22;
+anshu.name = "anshu akansha";
+anshu.roll = 31;
+
+anshu.studentDetails();
+cout<<endl;
+}
+//will print above values
+
+//new method
+
+student devang = {22,"devang", 5};
+devang.studentDetails();
+cout<<endl;
+
+struct Node{
+int data;
+next;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
