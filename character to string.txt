@@ -1,0 +1,10 @@
+convert char to string
+
+public static void mains(String[] args)
+{
+char ch='c';
+String st= Character.toString(ch);
+//st=String.valueOf(ch);
+System.out.println("the string is:"+st);
+}
+}
