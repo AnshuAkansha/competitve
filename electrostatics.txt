@@ -1,0 +1,2 @@
+ if(i>0 && input1[i-1]!=-1 && k<n)
+             q1.push(input2[k++]);
