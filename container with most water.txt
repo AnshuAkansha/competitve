@@ -1,0 +1,16 @@
+class Solution {
+public int maxArea(int[] a) {
+int max=0;
+int i=0,j=a.length-1;
+int area=(j-i)*Math.min(a[i],a[j]);
+while(i!=j){
+int temp=(j-i)*Math.min(a[i],a[j]);
+if(temp>area){
+area=temp;
+}
+if(a[i]>a[j])j--;
+else i++;
+}
+return area;
+}
+}
