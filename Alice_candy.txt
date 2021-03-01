@@ -1,0 +1,15 @@
+class Solution {
+    public int distributeCandies(int[] candyType) {
+        Arrays.sort(candyType);
+        int firstCandies=1;
+        int k=candyType.length;
+        for(int i=0;i<k && firstCandies/2<k;i++)
+        {
+            if(candyType[i]!=candyType[i-1]);
+            {
+                firstCandies++;
+            }
+        }
+        return Math.min(firstCandies,k/2);
+    }
+}
