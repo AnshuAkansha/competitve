@@ -1,0 +1,19 @@
+class Solution {
+    public boolean canPlaceFlowers(int[] flowerbed, int n) {
+        int i=0;
+        //return if n new flowers can be planted in the flowerbed without violating the no-adjacent-flowers rule.
+        int count=0;
+        while(i<flowerbed.length)
+        {
+            //flowerbed = [1,0,0,0,1]
+            if(flowerbed[i] == 0 && (i==0 || flowerbed[i-1]==0) && (i == flowerbed.length-1 || flowerbed[i+1]==0))
+            {
+                //if any case the ith element is 0 or adjacent positions are 0 then turn i to 1
+                flowerbed[i]=1;
+                count++;
+            }
+            i++;
+        }
+        return count>=n;
+    }
+}
